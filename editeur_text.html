@@ -1,0 +1,112 @@
+<html>
+<head>
+    <link rel="stylesheet" href="C:\Users\ASUS\Desktop\developpement web\atelier2\polices">
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+</head>
+<body style="margin:20px"><center>
+    <table>
+        <tr>
+            <td>
+                <label for="couleur">Couleur de fond</label>
+                <select name="couleur" id="couleur-fond">
+                <option value="1">Blanc</option>
+                <option value="2">Vert</option>
+                <option value="3">Rouge</option>
+            </select></td>
+            <td>
+                <label for="texte">Texte</label>
+                <select name="texte" id="texte">
+                <option value="1">Normal</option>
+                <option value="2">Italic</option>
+                <option value="3">Gras</option>
+            </select></td>
+            <td>
+                <label for="police">Police</label>
+                <select name="police" id="police">
+                <option value="1">Arial</option>
+                <option value="2">sans-serif</option>
+                <option value="3">monospace</option>
+            </select></td>
+            <td>
+                <label for="Taille">Taille</label>
+                 <input name="Taille" type="number" id="nombre"></td>
+            <td><input type="reset" value="Réinitialiser" onclick="window.location.reload();">
+            </td>
+            <td>
+                    <label for="Couleur-text">Couleur Text</label>
+                    <select name="couleur-text" id="Couleur-text">
+                    <option value="1">blue</option>
+                    <option value="2">aqua</option>
+                    <option value="3">orange</option></select>
+                </td>
+        </tr>
+        
+        
+    </table>
+    <textarea name="text" style="width:750px;height:500px;border-radius:20px;padding:10px" id="text-area"></textarea></center>
+    <script>
+        $('#couleur-fond').change(function(){
+            var x = $('#couleur-fond option:selected').text();
+    
+            if( x=='Blanc'){
+                $('#text-area').css('background-color','#ffffff');
+            };
+            if( x=='Vert' ){
+                $('#text-area').css('background-color','#00ff00');
+            }
+            if( x== 'Rouge'){
+                $('#text-area').css('background-color','#ff0000');
+            }
+        });
+        $('#police').change(function(){
+            var x = $('#police').val();
+            if( x == '1'){
+                $('#text-area').css('font-family','Arial');
+
+            };
+            if( x == '2'){
+                $('#text-area').css('font-family','sans-serif');
+                
+            };
+            if( x== '3'){
+                $('#text-area').css('font-family','monospace');
+            };
+        });
+        $('#texte').change(function(){
+            var y = $('#texte').val();
+            if( y == 1){
+                $('#text-area').css('font-style','normal');
+            } else if( y == 2){
+                $('#text-area').css('font-style','italic');
+            } else if( y == 3){
+                $('#text-area').css('font-weight','bold');
+            }
+        });
+        $('#nombre').change(function(){
+            var y = $('#nombre').val();
+            $('textarea').css('font-size', y);
+        });
+        $('#Couleur-text').change(function(){
+            var x = $('#Couleur-text option:selected').val();
+            switch(x) {
+                case '1':
+                    $('#text-area').css('color', 'blue');
+                    break;
+                case '2':
+                    $('#text-area').css('color', 'aqua');
+                    break;
+                case '3':
+                    $('#text-area').css('color', 'orange');
+                    break;
+                default:
+                    // Gérer les cas non prévus ici
+                    break;
+            }
+        });
+
+    </script>
+</body>
+</html>
